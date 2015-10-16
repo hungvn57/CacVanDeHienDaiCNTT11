@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Simple Launcher</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="show_apps">Show Apps</string>
+</resources>
