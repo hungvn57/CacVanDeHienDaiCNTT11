@@ -1,46 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.ssaurel.simplelauncher" >
+    package="com.example.basiclauncher"
+    android:versionCode="1"
+    android:versionName="1.0" >
 
-    <uses-feature
-        android:name="android.service.wallpaper"
-        android:required="true" >
-    </uses-feature>
+    <uses-sdk
+        android:minSdkVersion="11"
+        android:targetSdkVersion="18" />
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:launchMode="singleTask"
-        android:stateNotNeeded="true"
-        android:theme="@android:style/Theme.Wallpaper.NoTitleBar.Fullscreen" >
+        android:theme="@style/AppTheme" >
         <activity
-            android:name=".HomeActivity"
-            android:label="@string/app_name" >
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:theme="@android:style/Theme.Holo.Wallpaper.NoTitleBar"
+            android:name="com.example.basiclauncher.MainActivity"
+            android:label="@string/app_name"
+            android:launchMode="singleTask"
+            android:clearTaskOnLaunch="true"
+            android:stateNotNeeded="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.HOME" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".AppsListActivity" />
-
-        <service
-            android:name=".GIFWallpaperService"
-            android:enabled="true"
-            android:exported="true"
-            android:label="GIF Wallpaper"
-            android:permission="android.permission.BIND_WALLPAPER" >
-            <intent-filter>
-                <action android:name="android.service.wallpaper.WallpaperService" />
-            </intent-filter>
-
-            <meta-data
-                android:name="android.service.wallpaper"
-                android:resource="@xml/wallpaper" >
-            </meta-data>
-        </service>
     </application>
 
 </manifest>
